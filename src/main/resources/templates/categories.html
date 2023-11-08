@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultrap.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css">
+
+</head>
+<body>
+  <div layout:fragment="content1">
+    <div class="container mt-2">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Category</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categories}">
+          <td th:text="${category.id}"></td>
+          <td th:text="${category.name}"></td>
+          <td >
+              <a class="btn btn-primary" th:href="@{/admin/category/{category_id}/edit(category_id=${category.id})}" >Edit</a>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

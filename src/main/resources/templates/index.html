@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+                xmlns:layout="http://www.ultrap.net.nz/thymeleaf/layout"
+                layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div layout:fragment="content1">
+        <div class="container mt-2">
+            <div class="mb-3">
+                <form th:action="@{/user/courses/search}" class="foem-inline my-lg-0 mb-3">
+                    <input type="search" class="form-control mr-sm-2" name="query" placeholder="Seach Courses" aria-label="search" >
+                </form>
+            </div>
+           <div class="row">
+               <div class="col-3" th:each="course :${courses}">
+                   <div class="card" style="width: 18rem;">
+                       <img th:src="${course.image}" class="card-img-top" alt="...">
+                           <div class="card-body">
+                               <h5 class="card-title" th:text="${course.title}"></h5>
+                               <p class="text-secondary" th:text="${course.category.name}"></p>
+                               <p class="card-text" th:text="${course.description}"></p>
+                               <a th:href="@{/user/course/{courseId}(courseId=${course.id})}" class="btn btn-primary">Details</a>
+                               <a th:href="@{/admin/course/{courseId}/edit(courseId=${course.id})}" class="btn btn-primary">Edit</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+    </div>
+</body>
+</html>

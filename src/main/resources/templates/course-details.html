@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultrap.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Course</title>
+</head>
+<body>
+  <div layout:fragment="content1">
+    <div class="container">
+      <div class="card" style="width: 25rem;">
+        <img th:src="${course.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${course.title}"></h5>
+          <p class="text-secondary" th:text="${course.category.name}"></p>
+          <p class="card-text" th:text="${course.description}"></p>
+          <a th:href="@{/admin/course/{courseId}/delete(courseId=${course.id})}" class="btn btn-danger">delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
