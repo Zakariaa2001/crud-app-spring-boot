@@ -19,6 +19,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class AccountServiceImpl implements AccountService {
 
+
     private AppUserRepository appUserRepository;
     private AppRoleRepository appRoleRepository;
     private PasswordEncoder passwordEncoder;
@@ -66,4 +67,5 @@ public class AccountServiceImpl implements AccountService {
     public AppUser loadUserByUsername(String username) {
         return appUserRepository.findByUsername(username);
     }
+
 }

@@ -11,6 +11,11 @@
 <body>
   <div layout:fragment="content1">
     <div class="container mt-2">
+      <div class="mb-3">
+        <form th:action="@{/user/categories/search}" class="foem-inline my-lg-0 mb-3">
+          <input type="search" class="form-control mr-sm-2" name="query" placeholder="Search Categories" aria-label="search" >
+        </form>
+      </div>
       <table class="table">
         <thead>
         <tr>
@@ -25,6 +30,7 @@
           <td th:text="${category.name}"></td>
           <td >
               <a class="btn btn-primary" th:href="@{/admin/category/{category_id}/edit(category_id=${category.id})}" >Edit</a>
+              <a class="btn btn-danger" th:href="@{/admin/category/{category_id}/delete(category_id=${category.id})}" >delete</a>
           </td>
         </tr>
 

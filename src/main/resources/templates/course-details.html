@@ -18,6 +18,19 @@
           <a th:href="@{/admin/course/{courseId}/delete(courseId=${course.id})}" class="btn btn-danger">delete</a>
         </div>
       </div>
+      <hr>
+      <div>
+        <h2>Comment</h2>
+        <form method="post" th:action="@{/user/saveComment}">
+          <input class="form-control" type="hidden" name="course" th:value="${course.id}">
+          <input
+                  class="form-control"
+                  type="text"
+                  name="comment"
+          >
+          <button type="submit" class="btn btn-primary">save</button>
+        </form>
+      </div>
     </div>
   </div>
 </body>

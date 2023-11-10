@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static com.getYourCouse.getYourCouse.mapper.CategoryMapper.mapToCategory;
 import static com.getYourCouse.getYourCouse.mapper.CategoryMapper.mapToCategoryDto;
+import static com.getYourCouse.getYourCouse.mapper.CourseMapper.mapToCourseDto;
 
 @Service
 @AllArgsConstructor
@@ -42,6 +43,17 @@ public class categoryServiceImpl implements CategoryService {
     public void updateCategory(CategoryDto categoryDto) {
         Category category = mapToCategory(categoryDto);
         categoryRepository.save(category);
+    }
+
+    @Override
+    public List<CategoryDto> searchCategory(String query) {
+        List<Category> categories = categoryRepository.searchCategory(query);
+        return categories.stream().map(category -> mapToCategoryDto(category)).collect(Collectors.toList());
+    }
+
+    @Override
+    public void delete(Long categoryId) {
+        categoryRepository.deleteById(categoryId);
     }
 
 

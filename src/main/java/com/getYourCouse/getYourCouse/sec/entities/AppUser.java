@@ -1,5 +1,6 @@
 package com.getYourCouse.getYourCouse.sec.entities;
 
+import com.getYourCouse.getYourCouse.entities.Courses;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,4 +20,6 @@ public class AppUser {
     private String email;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<AppRole> roles;
+
+
 }

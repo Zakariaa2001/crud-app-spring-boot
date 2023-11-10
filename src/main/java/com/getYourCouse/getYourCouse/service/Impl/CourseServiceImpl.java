@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static com.getYourCouse.getYourCouse.mapper.CategoryMapper.mapToCategoryDto;
 import static com.getYourCouse.getYourCouse.mapper.CourseMapper.*;
 
 @Service

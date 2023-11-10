@@ -16,6 +16,7 @@ public class CourseMapper {
                 .title(courses.getTitle())
                 .description(courses.getDescription())
                 .image(courses.getImage())
+                .category(courses.getCategory())
                 .createdAt(courses.getCreatedAt())
                 .updatedAt(courses.getUpdatedAt())
                 .deletedAt(courses.getDeletedAt())
@@ -24,23 +25,17 @@ public class CourseMapper {
     }
 
     public static CourseDto mapToCourseDto(Courses course) {
-            CourseDto courseDto = CourseDto.builder()
-                    .id(course.getId())
-                    .title(course.getTitle())
-                    .description(course.getDescription())
-                    .image(course.getImage())
-                    .category(mapToCategoryDto(course.getCategory()))
-                    .createdAt(course.getCreatedAt())
-                    .updatedAt(course.getUpdatedAt())
-                    .deletedAt(course.getDeletedAt())
-                    .build();
-            return courseDto;
-    }
-    public static CategoryDto mapToCategoryDto(Category category) {
-        CategoryDto categoryDto = CategoryDto.builder()
-                .id(category.getId())
-                .name(category.getName())
+        CourseDto courseDto = CourseDto.builder()
+                .id(course.getId())
+                .title(course.getTitle())
+                .description(course.getDescription())
+                .image(course.getImage())
+                .category(course.getCategory())
+                .createdAt(course.getCreatedAt())
+                .updatedAt(course.getUpdatedAt())
+                .deletedAt(course.getDeletedAt())
                 .build();
-        return categoryDto;
+        return courseDto;
     }
+
 }

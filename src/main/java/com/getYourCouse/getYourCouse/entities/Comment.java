@@ -1,5 +1,6 @@
 package com.getYourCouse.getYourCouse.entities;
 
+import com.getYourCouse.getYourCouse.sec.entities.AppUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,28 +9,28 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor @Builder
-public class Courses {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class Comment {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String description;
-    private String image;
+    private String comment;
     @CreationTimestamp
     private Date createdAt;
     @UpdateTimestamp
     private Date updatedAt;
-    private Boolean deletedAt;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @JoinColumn(name = "course_id")
+    private Courses course;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
-    private List<Comment> comments = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private AppUser user;
+
 }

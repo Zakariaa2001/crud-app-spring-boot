@@ -14,4 +14,7 @@ public interface CategoryService {
     CategoryDto findCourseById(Long categoryId);
 
     void updateCategory(CategoryDto categoryDto);
+
+    List<CategoryDto> searchCategory(String query);
+    void delete(Long categoryId);
 }
