@@ -20,7 +20,11 @@
       </div>
       <hr>
       <div>
-        <h2>Comment</h2>
+        <h2>Comments:</h2>
+        <div th:each="comment : ${comments}">
+          <p th:text="${comment.appuser.username.substring(0,1)}"></p>
+          <p th:text="${comment.comment}"></p>
+        </div>
         <form method="post" th:action="@{/user/saveComment}">
           <input class="form-control" type="hidden" name="course" th:value="${course.id}">
           <input

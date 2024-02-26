@@ -15,4 +15,13 @@ public class CommentMapper {
                 .build();
         return comment;
     }
+    public static CommentDto mapToCommentDto(Comment comment) {
+        CommentDto commentDto = CommentDto.builder()
+                .id(comment.getId())
+                .comment(comment.getComment())
+                .course(comment.getCourse())
+                .appuser(comment.getUser())
+                .build();
+        return commentDto;
+    }
 }

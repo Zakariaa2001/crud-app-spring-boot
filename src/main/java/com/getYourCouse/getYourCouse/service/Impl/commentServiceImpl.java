@@ -21,12 +21,13 @@ public class commentServiceImpl implements CommentService {
     private CourseRepository courseRepository;
     private AppUserRepository appUserRepository;
     @Override
-    public Comment saveComment(Long courseId, String userId, CommentDto commentDto) {
+    public Comment saveComment(Long courseId, String userName, CommentDto commentDto) {
         Courses course = courseRepository.findById(courseId).get();
-        AppUser appUser = appUserRepository.findById(userId).get();
+        AppUser appUser = appUserRepository.findByUsername(userName);
         Comment comment = mapToComment(commentDto);
         comment.setCourse(course);
         comment.setUser(appUser);
-        return commentRepository.save(comment) ;
+        return commentRepository.save(comment);
     }
+
 }

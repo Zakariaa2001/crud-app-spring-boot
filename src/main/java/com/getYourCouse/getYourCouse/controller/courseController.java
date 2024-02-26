@@ -2,6 +2,7 @@ package com.getYourCouse.getYourCouse.controller;
 
 
 import com.getYourCouse.getYourCouse.dto.CategoryDto;
+import com.getYourCouse.getYourCouse.dto.CommentDto;
 import com.getYourCouse.getYourCouse.dto.CourseDto;
 import com.getYourCouse.getYourCouse.entities.Category;
 import com.getYourCouse.getYourCouse.entities.Courses;
@@ -48,7 +49,9 @@ public class courseController {
     @GetMapping("/user/course/{courseId}")
     public String courseDetails(@PathVariable("courseId") Long courseId,Model model) {
         CourseDto courseDto = courseService.findCourseById(courseId);
+        List<CommentDto> coursesByComment = courseService.findCoursesByComment(courseId);
         model.addAttribute("course",courseDto);
+        model.addAttribute("comments",coursesByComment);
         return "course-details";
     }
     @GetMapping("/admin/addCourse")
@@ -72,7 +75,6 @@ public class courseController {
         CourseDto course = courseService.findCourseById(courseId);
         model.addAttribute("course",course);
         return "course-edit";
-
     }
     @PostMapping("/admin/course/{courseId}/edit")
     public String updateCourse(@PathVariable("courseId") Long courseId,

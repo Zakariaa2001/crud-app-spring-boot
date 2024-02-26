@@ -1,6 +1,7 @@
 package com.getYourCouse.getYourCouse.dto;
 
 import com.getYourCouse.getYourCouse.entities.Category;
+import com.getYourCouse.getYourCouse.entities.Comment;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
